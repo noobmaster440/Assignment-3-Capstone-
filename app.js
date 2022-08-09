@@ -6,7 +6,16 @@ const connectEnsureLogin = require('connect-ensure-login');
 const session=require('express-session')
 const {v4:uuidv4}=require('uuid')
 const User = require('./user.js');
+var properties = require('./config/property');
+var db = require('./config/database');
+var postRoutes = require('./posts/posts.routes');
+var log = require('morgan')('dev');
+var router=express.Router();
 
+db();
+
+app.use(log)
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(session({
     secret:'=fmLV*U@FL`N]]~/zqtFCch.pBTGoU',
@@ -15,6 +24,14 @@ app.use(session({
     cookie:{maxAge:60*60*1000}
 }))
 
+app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+     res.setHeader("Access-Control-Allow-Credentials", "true");
+     res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+     res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,Authorization");
+   next();
+ });
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
@@ -22,6 +39,8 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use('/',router)
+postRoutes(router)
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'/static/index.html')
 })
@@ -64,4 +83,6 @@ app.post('/signup',  function(req, res) {
 
 const port=9000
 
-app.listen(port,()=>{console.log(`app is running on port ${port}`)})
+app.listen(properties.PORT, (req, res) => {
+    console.log(`Server is running on ${properties.PORT} port.`);
+})
