@@ -1,5 +1,5 @@
 var Posts = require('./posts.controller');
-
+var postSchema = require('./posts.model');
 module.exports = function(router) {
     router.post('/create', Posts.createPost);
     router.get('/get', Posts.getPost);

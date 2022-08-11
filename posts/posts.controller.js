@@ -20,6 +20,7 @@ exports.createPost = function (req, res, next) {
 }
 
 exports.getPost = function(req, res, next) {
+    console.log("test severe 100")
     Posts.get({}, function(err, posts) {
         if(err) {
             console.log("get posts function got trigerred")
@@ -28,26 +29,29 @@ exports.getPost = function(req, res, next) {
                 error: err
             })
         }
-        console.log(` all good, post found ${post} `)
+        res.render("postlist", {post:posts});
 
-        res.json({
-            posts: posts
-        })
+        // console.log(` all good, post found ${posts} `)
+
+        // res.json({
+        //   posts: posts
+        //  })
+
     })
 }
 
-exports.getPost = function(req, res, next) {
-    Posts.get({title: req.params.title}, function(err, post) {
-        if(err) {
-            res.json({
-                error: err
-            })
-        }
-        res.json({
-            post: post
-        })
-    })
-}
+// exports.getPost = function(req, res, next) {
+//     Posts.get({title: req.params.title}, function(err, post) {
+//         if(err) {
+//             res.json({
+//                 error: err
+//             })
+//         }
+//         res.json({
+//             post: post
+//         })
+//     })
+// }
 
 exports.updatePost = function(req, res, next) {
     var post = {
