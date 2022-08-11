@@ -6,4 +6,8 @@ module.exports = function(router) {
     router.get('/get/:name', Posts.getPost);
     router.put('/update/:id', Posts.updatePost);
     router.delete('/remove/:id', Posts.removePost);
+
+    router.get('/updatepost', (req, res) => {
+        res.render('updatepost');
+       });
 }
