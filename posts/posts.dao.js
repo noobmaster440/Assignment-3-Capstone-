@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var postSchema = require('./posts.model');
+var postSchema = require('../models/post');
 
 postSchema.statics = {
     create : function(data, cb) {

@@ -7,11 +7,12 @@
     <title>Posts</title>
 </head>
 <body>
-    <% for(var i=0;i<post.length;i++){ %>
-        <h1> <%= post[i].title %> </h1>
-        <p> <%= post[i].body %> </p>
-        <button>Update</button>
+    <% for(var i=0;i<posts.length;i++){ %>
+        <h1> <%= posts[i].title %> </h1>
+        <p> <%= posts[i].body %> </p>
         <a href="/updatepost">Update</a>
     <% } %>
+    <br>
+    <a href="/posts/new">Create a new post</a>
 </body>
 </html>
