@@ -13,6 +13,8 @@ var indexRoutes=require('./routes/index')
 var log = require('morgan')('dev');
 var router=express.Router();
 // var flash = require('flash');
+var methodOverride = require("method-override");
+
 const port=9000
 
 db();
@@ -20,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(log)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
+app.use(methodOverride("_method"));
 app.use(session({
     secret:'=fmLV*U@FL`N]]~/zqtFCch.pBTGoU',
     resave:false,
