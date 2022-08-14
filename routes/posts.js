@@ -54,7 +54,33 @@ router.get('/:id/edit',connectEnsureLogin.ensureLoggedIn(),(req, res) => {
     })
 });
 
+router.put("/:id",connectEnsureLogin.ensureLoggedIn(),(req, res) => {
+    console.log(req.body.title)
+    var newPost={
+        title:req.body.title,
+        body:req.body.body
+    }
+    Post.findByIdAndUpdate(req.params.id,newPost,(err,post)=>{
+        if(err){
+            console.log(err)
+        }else{
+            // console.log(post)
+            res.redirect("/posts")
+        }
+    })
+})
 
+//deleteing a post
+router.delete("/:id",connectEnsureLogin.ensureLoggedIn(),(req, res) => {
+    Post.findByIdAndDelete(req.params.id,(err,delPost)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(delPost)
+            res.redirect("/posts")
+        }
+    })
+})
 
 
 
