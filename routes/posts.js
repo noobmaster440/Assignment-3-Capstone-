@@ -3,11 +3,7 @@ const router = express.Router();
 const Post = require('../models/post');
 const connectEnsureLogin = require('connect-ensure-login');
 
-// router.post('/create', Posts.createPost);
-// // router.get('/get', Posts.getPost);
-// // router.get('/get/:name', Posts.getPost);
-// router.put('/update/:id', Posts.updatePost);
-// router.delete('/remove/:id', Posts.removePost);
+
 
 //getting all the posts
 router.get("/",(req,res)=>{

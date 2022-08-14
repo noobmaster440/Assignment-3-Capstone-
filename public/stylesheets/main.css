@@ -1,8 +1,10 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 body {
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  background-color: #FDFDFD;
+  background-color: #a42e2e;
+}
+h1{
+  color: red !important;
 }
 
 div, input, a, button, textarea, ul, li {
