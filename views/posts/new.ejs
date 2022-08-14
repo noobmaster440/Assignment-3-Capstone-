@@ -3,13 +3,15 @@
   <head>
     <link rel="stylesheet" href="/public/stylesheets/main.css" type="text/css">
     <title>Secret Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-    <div class='container'>
+    <div class='container text-center'>
       <div class='header'>
-        <img src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
-        <h1 class="titlemake">Make a Post</h1>
-        <h2 class="subtitle is-4">Reach the world 🚀</h2>
+        <img class="d-flex justify-content-center align-items-center align-content-center" src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
+        <h1 class="text-center">Make a Post</h1>
+        <h2 class="text-center text-danger">Reach the world 🚀</h2>
       </div>
       <h2 class="subtitle is-3">Create my Post</h2>
       <form id='reviewForm' action="/posts" method="POST">
@@ -25,7 +27,7 @@
       <br/>
       <!-- TODO 5, Add Container To Render Reviews -->
       <h4 class="subtitle is-3">Recent posts</h4>
-      <a href="/get">Click Here</a>
+      <a href="/dashboard">Click Here</a>
       <ul id='reviews'>
         
       </ul>
