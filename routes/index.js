@@ -30,11 +30,16 @@ router.get('/register',(req,res)=>{
 })
 
 router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-    res.send(`Hello ${req.user.username}. Your session ID is ${req.sessionID} 
-     and your session expires in ${req.session.cookie.maxAge} 
-     milliseconds.<br><br>
-     <a href="/logout">Log Out</a><br><br>
-     <a href="/posts/">Members Only</a>`);
+    Post.find({},(err,allPosts)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.render("dashboard.ejs",{
+                posts:allPosts,
+                username:req.user.username
+            })
+        }
+    })
   });
 
 router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) => {
