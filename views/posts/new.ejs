@@ -8,12 +8,15 @@
   </head>
   <body>
     <div class='container text-center'>
+      <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+     <a  class="btn btn-primary my-3" href="/logout">Log Out</a>
       <div class='header'>
-        <img class="d-flex justify-content-center align-items-center align-content-center" src="https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
-        <h1 class="text-center">Make a Post</h1>
-        <h2 class="text-center text-danger">Reach the world 🚀</h2>
+        
+        
+        <h1 class="text-center py-1">Make a Post</h1>
+        <h2 class="text-center text-danger py-1">Reach the world 🚀</h2>
       </div>
-      <h2 class="subtitle is-3">Create my Post</h2>
+      <h2 class="py-2">Create my Post</h2>
       <form id='reviewForm' action="/posts" method="POST">
         <input type="hidden" id='hiddenId' />
         <input type="text" name="title" placeholder="What is it about ?" />
@@ -22,17 +25,17 @@
         <textarea name="body" placeholder="Start writing your thoughts ..."></textarea>
         <br/>
         <br/>
-        <button type='submit' class="button is-primary">Post Now</button>
+        <button type='submit' class="btn btn-primary">Post Now</button>
       </form>
       <br/>
       <!-- TODO 5, Add Container To Render Reviews -->
-      <h4 class="subtitle is-3">Recent posts</h4>
-      <a href="/dashboard">Click Here</a>
+      <h4 class="text-danger">Recent posts</h4>
+      <a href="../dashboard.ejs">Click Here</a>
       <ul id='reviews'>
         
       </ul>
+      
     </div>
-    <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-     <a href="/logout">Log Out</a>
+ 
   </body>
 </html>
