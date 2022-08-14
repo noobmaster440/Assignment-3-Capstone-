@@ -3,9 +3,21 @@ const router = express.Router();
 const passport = require("passport");
 const User = require("../models/user");
 const connectEnsureLogin = require('connect-ensure-login');
+const Post = require('../models/post');
+
+// var flash = require('flash-express')
+
 
 router.get('/',(req,res)=>{
-    res.render("index.ejs")
+    Post.find({},(err,allPosts)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.render("index.ejs",{
+                posts:allPosts
+            })
+        }
+    })
 })
 
 router.get('/login',(req,res)=>{

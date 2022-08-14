@@ -41,6 +41,7 @@ router.post("/",connectEnsureLogin.ensureLoggedIn(),(req,res)=>{
             console.log(err)
         }else{
             console.log(newlyCreated)
+            req.flash("success","Successfully Updated !!!")
             res.redirect("/posts")
         }
     })
@@ -53,28 +54,7 @@ router.get('/:id/edit',connectEnsureLogin.ensureLoggedIn(),(req, res) => {
     })
 });
 
-router.put("/:id",connectEnsureLogin.ensureLoggedIn(),(req, res) => {
-    Post.findByIdAndUpdate(req.params.id,req.body.post,(err,post)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(post)
-            res.redirect("/posts")
-        }
-    })
-})
 
-//deleteing a post
-router.delete("/:id",connectEnsureLogin.ensureLoggedIn(),(req, res) => {
-    Post.findByIdAndDelete(req.params.id,(err,delPost)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(delPost)
-            res.redirect("/posts")
-        }
-    })
-})
 
 
 

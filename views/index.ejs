@@ -6,5 +6,23 @@
   <body>
 . . <!-- link to login page-->
 	<a href="/login">Please Login Here!</a>
+
+  <% for(var i=0;i<posts.length;i++){ %>
+    <h1> <%= posts[i].title %> </h1>
+    <p> <%= posts[i].body %> </p>
+    <a href="/posts/<%=posts[i]._id%>/edit">Update</a>
+
+    <form
+      id="deleteForm"
+      action="/posts/<%=posts[i]._id%>?_method=DELETE"
+      method="POST"
+    >
+      <button class="btn btn-xs btn-danger">Delete</button>
+    </form>
+
+  <% } %>
+  <br>
+  <a href="/posts/new">Create a new post</a>
+
   </body>
 </html>

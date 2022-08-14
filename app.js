@@ -13,7 +13,9 @@ var indexRoutes=require('./routes/index')
 var log = require('morgan')('dev');
 var router=express.Router();
 // var flash = require('flash');
+// var flash = require('flash-express')
 var methodOverride = require("method-override");
+var flash = require('connect-flash');
 
 const port=9000
 
@@ -23,6 +25,8 @@ app.use(log)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(methodOverride("_method"));
+app.use(flash());
+
 app.use(session({
     secret:'=fmLV*U@FL`N]]~/zqtFCch.pBTGoU',
     resave:false,
@@ -40,7 +44,6 @@ app.use(function(req, res, next) {
 
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(flash);
 
 
 passport.use(User.createStrategy());
@@ -48,12 +51,12 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// app.use((req, res, next) => {
-//     res.locals.currUser = req.user;
-//     res.locals.error = req.flash("error");
-//     res.locals.success = req.flash("success");
-//     next();
-//   });
+app.use((req, res, next) => {
+    res.locals.currUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+  });
 
 app.use("/",indexRoutes)
 app.use("/posts",postRoutes)
