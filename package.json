@@ -23,17 +23,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app"
   },
-  "keywords": [
-    "example",
-    "heroku"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "engines": {
-    "node": "16.15.0"
-  }
+  "description": ""
 }
