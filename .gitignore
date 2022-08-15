@@ -1,2 +1,4 @@
-node_modules
-.md
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
