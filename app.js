@@ -61,6 +61,6 @@ app.use((req, res, next) => {
 app.use("/", indexRoutes)
 app.use("/posts", postRoutes)
 
-app.listen(process.env.PORT, (req, res) => {
-    console.log(`Server is running on ${process.env.PORT} port.`);
+app.listen(properties.PORT, (req, res) => {
+    console.log(`Server is running on ${properties.PORT} port.`);
 })
