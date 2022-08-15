@@ -16,7 +16,10 @@ Working example: [Link]
 
 
 
+
 <img width="643" alt="er diagram" src="https://user-images.githubusercontent.com/98124989/184716287-0b719f59-a14c-4a55-a1dd-405d5c9924bc.png">
+<h2>Wireframe Pdf</h2></br>
+[Capstone---Wireframe-cc-Premium (1).pdf](https://github.com/noobmaster440/Assignment-3-Capstone-/files/9340343/Capstone---Wireframe-cc-Premium.1.pdf)
 
 <h2>Technology Stack:</h2>
  <p> -Javascript </p>
