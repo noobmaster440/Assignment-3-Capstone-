@@ -38,7 +38,7 @@ router.post("/", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
         } else {
             console.log(newlyCreated)
             req.flash("success", "Successfully Updated !!!")
-            res.redirect("/")
+            res.redirect("/dashboard")
         }
     })
 })

@@ -21,10 +21,10 @@
     <h2 class="py-2">Create my Post</h2>
     <form id='reviewForm' action="/posts" method="POST">
       <input type="hidden" id='hiddenId' />
-      <input type="text" name="title" placeholder="What is it about ?" />
+      <input type="text" name="title" required placeholder="What is it about ?" />
       <br />
       <br />
-      <textarea name="body" placeholder="Start writing your thoughts ..." cols="23" rows="5"></textarea>
+      <textarea name="body" required placeholder="Start writing your thoughts ..." cols="23" rows="5"></textarea>
       <br />
       <br />
       <button type='submit' class="btn btn-primary">Post Now</button>
